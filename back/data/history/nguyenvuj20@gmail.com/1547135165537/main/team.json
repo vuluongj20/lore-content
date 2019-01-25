@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Dong Sun Lim",
+    "function": "Cheer Leader",
+    "email": "hacameon91@gmail.com",
+    "color": "#FFFFFF",
+    "link": "15467620429905wiyjuyx57b.jpg",
+    "size": 1000,
+    "x": 500,
+    "y": 500
+  },
+  {
+    "name": "Won Nyoung Lee",
+    "function": "Project Operator",
+    "email": "wonnyounglee@gmail.com",
+    "color": "#FFFFFF",
+    "link": "15467620429901mj2dwe27wb.jpg",
+    "size": 1000,
+    "x": 500,
+    "y": 500
+  },
+  {
+    "name": "Dong Wooq Lee",
+    "function": "Action Taker",
+    "email": "cpawookie@gmail.com",
+    "color": "#FFFFFF",
+    "link": "1546762042990lxrzpm31b9c.jpg",
+    "size": 1000,
+    "x": 500,
+    "y": 500
+  },
+  {
+    "name": "Vu Luongs",
+    "function": "Web Developer",
+    "email": "vuluongj20@gmail.com",
+    "color": "#FFFFFF",
+    "link": "1546762042991m0gkkjf407f.jpg",
+    "size": 1000,
+    "x": 500,
+    "y": 500
+  }
+]

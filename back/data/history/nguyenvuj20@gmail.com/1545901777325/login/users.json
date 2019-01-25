@@ -1,0 +1,12 @@
+[
+  {
+    "email": "nguyenvuj20@gmail.com",
+    "pass": "j20",
+    "type": "admin",
+    "active": true,
+    "activateRand": "",
+    "activateUntil": "",
+    "resetRand": "9439d42e4571a26000fa664383dc908cd02bfd38",
+    "resetUntil": 1544510086361
+  }
+]

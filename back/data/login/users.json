@@ -1,0 +1,12 @@
+[
+  {
+    "email": "nguyenvuj20@gmail.com",
+    "pass": "j20",
+    "type": "admin"
+  },
+  {
+    "email": "test@test.com",
+    "pass": "test",
+    "type": "demo"
+  }
+]

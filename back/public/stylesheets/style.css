@@ -1,0 +1,26 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+p {
+  font-family: Source Sans Pro;
+  font-weight: 400;
+  font-size: 18px;
+  color: #353535;
+  line-height: 1.5;
+}
+h1 {
+  font-family: Source Sans Pro;
+  font-weight: 700;
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
