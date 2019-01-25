@@ -1,0 +1,19 @@
+<div [@fade] *ngIf="loginPage" class="box center">
+  <h1>Hi!</h1>
+  <p>{{mes}}</p>
+  <form [formGroup]="userGroup">
+    <input [class.red]="emailErr || emailErr2" type="email" placeholder="Email" formControlName="email">
+    <input [class.red]="passErr" type="password" placeholder="Password" formControlName="pass">
+    <button (click)="login($event)" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
+      Sign in
+      <div class="loader center" *ngIf="loading">
+        <div class="wheel"></div>
+      </div>
+    </button>
+  </form>
+  <div class="misc">
+    <a routerLink="/reset" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">Forgot password?</a>
+    <a routerLink="/new" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">Want a new account?</a>
+  </div>
+</div>
+<app-error *ngIf="resErr" [status]="resErr"></app-error>

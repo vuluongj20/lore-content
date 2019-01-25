@@ -1,0 +1,227 @@
+.course-wrap {
+  background-color: #FFFFFF;
+}
+.course-box {
+  width: 80%;
+  max-width: 820px;
+}
+.course-type-title {
+  font-size: 26px;
+  text-indent: 0.75em;
+}
+.course-type-title:not(:first-child) {
+  margin-top: 2em;
+}
+.course-stretch {
+  position: relative;
+  width: 100vw;
+  height: 25vw;
+  min-height: 300px;
+  margin-left: calc((-100vw + 820px)/2);
+  overflow: hidden;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+.course-preview {
+  overflow: hidden;
+  height: 100%;
+  width: 42%;
+  min-width: 504px;
+  border-radius: 20px;
+  border: 1px solid #efefef;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: transform 400ms ease, opacity 400ms ease;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  opacity: 0;
+}
+.course-preview .course-title {
+  width: 70%;
+  font-size: 28px;
+}
+.course-title-wrap {
+  height: 30%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: #ffffff;
+}
+.arrow {
+  position: absolute;
+  height: 100%;
+  width: 50px;
+  background-color: #ffffff;
+  cursor: pointer;
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+}
+.arrow-left {
+  left: 0;
+  transform: scaleX(-1);
+}
+.arrow-right {
+  right: 0;
+}
+.arrow-1, .arrow-2 {
+  position: absolute;
+  left: 50%;
+  height: 3px;
+  width: 30px;
+  background-color: #cfcfcf;
+  border-radius: 1px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  transition: background-color 50ms ease;
+}
+.arrow.touch>.arrow-1, .arrow.touch>.arrow-2 {
+  background-color: #fca500;
+}
+.arrow-1 {
+  bottom: 50%;
+  transform: translate(-55%, -10.5px) rotate(60deg);
+}
+.arrow-2 {
+  top: 50%;
+  transform: translate(-55%, 10.5px) rotate(-60deg);
+}
+/* Description frames */
+.course-des-wrap {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+}
+.course-des-box {
+  width: 80%;
+  max-width: 680px;
+}
+.course-des-outer-wrap {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+  z-index: 3;
+}
+.course-des-title {
+  font-size: 60px;
+  margin-bottom: 0.6em;
+}
+.x-wrap {
+  position: fixed;
+  top: 30px;
+  left: 2%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+  z-index: 3;
+}
+.cross {
+  height: 2px;
+  width: 30px;
+  background-color: #cfcfcf;
+}
+.x-wrap:hover .cross {
+  background-color: #fca500;
+}
+.cross-1 {
+  -webkit-transform: rotate(45deg) translate(5px, -6px);
+  -ms-transform: rotate(45deg) translate(5px, -6px);
+  transform: rotate(45deg) translate(18px, 10px);
+}
+.cross-2 {
+  -webkit-transform: rotate(-45deg) translate(5px, -6px);
+  -ms-transform: rotate(-45deg) translate(5px, -6px);
+  transform: rotate(-45deg) translate(-9px, 16px);
+}
+@media (hover: hover) {
+  .course-preview:hover h1 {
+    text-decoration: underline solid #fca500;
+  }
+  .arrow:hover>.arrow-1, .arrow:hover>.arrow-2 {
+    background-color: #fca500;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .row-two {
+    display: flex;
+    justify-content: center;
+  }
+  .row-two>.arrow {
+    display: none;
+  }
+  .row-two>.course-preview {
+    position: relative !important;
+    top: initial !important;
+    left: initial !important;
+    transform: none !important;
+    margin-left: 1%;
+    margin-right: 1%;
+    transition: none !important;
+    opacity: 1;
+  }
+  .row-one>.course-preview {
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 1072px) {
+  .row-two>.course-preview {
+    min-width: initial;
+    width: 47%;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .course-stretch {
+    margin-left: -12.5%;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .course-box {
+    width: 90%;
+  }
+  .course-stretch {
+    margin-left: -5.5555%;
+  }
+  .course-stretch {
+    min-height: 300px;
+  }
+  .row-one>.course-preview {
+    opacity: 1;
+  }
+  .row-two {
+    display: block;
+  }
+  .row-two>.arrow {
+    display: initial;
+  }
+  .row-two>.course-preview {
+    position: absolute;
+    max-width: 504px;
+    width: calc(100vw - 62px);
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    opacity: 1;
+  }
+  .row-two>.course-preview {
+    transform: translate(-50%, -50%);
+  }
+  .course-preview {
+    min-width: initial;
+    max-width: 504px;
+    width: calc(100vw - 62px);
+  }
+  .course-preview .course-title {
+    font-size: 24px;
+  }
+  .arrow {
+    width: 30px;
+  }
+  .course-des-box {
+    width: 90%;
+  }
+  .course-des-title {
+    font-size: 42px;
+  }
+}

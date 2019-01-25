@@ -1,0 +1,11 @@
+button {
+  margin-top: 8px;
+}
+button.long {
+  width: 160px;
+}
+.box {
+  padding: 30px 60px;
+  width: 80%;
+  max-width: 300px;
+}

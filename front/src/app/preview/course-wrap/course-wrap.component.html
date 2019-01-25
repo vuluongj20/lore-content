@@ -1,0 +1,46 @@
+<div *ngIf="rows" class="course-wrap">
+  <div class="course-box center">
+    <h1 class="course-section-title">The Courses</h1>
+    <div *ngFor="let type of courseTypes">
+      <h2 class="course-type-title">{{type | uppercase}}</h2>
+      <div class="course-stretch" *ngFor="let row of rows[type]; let ir = index" [class.row-two]="row.length == 2" [class.row-one]="row.length == 1">
+        <div class="course-preview center-abs" *ngFor="let course of row; let ic = index" [ngStyle]="{
+          'background-color': course.color,
+          'transform': course.slide,
+          'opacity': course.opa,
+          'transition': course.trans}">
+          <img *ngIf="course.cleanUrl" class="center-abs" [src]="course.cleanUrl" [ngStyle]="{
+            'height': course.size/10 + '%',
+            'left': course.x/10 + '%',
+            'top': course.y/10 + '%'}">
+          <div class="course-title-wrap">
+            <h1 class="course-title center-abs">{{course.name}}</h1>
+          </div>
+          <a class="link-box" (click)="desToggleIn(type, ir, ic)"></a>
+        </div>
+        <div *ngIf="row.length > 1" class="arrow arrow-right" (click)="sliderClickable && move(type, ir, 'right')" (touchstart)="touchStart($event)" (touchend)="touchEnd($event)">
+          <div class="arrow-1"></div>
+          <div class="arrow-2"></div>
+        </div>
+        <div *ngIf="row.length > 1" class="arrow arrow-left" (click)="sliderClickable && move(type, ir, 'left')" (touchstart)="touchStart($event)" (touchend)="touchEnd($event)">
+          <div class="arrow-1"></div>
+          <div class="arrow-2"></div>
+        </div>
+        <ng-container *ngFor="let course of row; let ic = index">
+          <div class="course-des-outer-wrap vh-fix" *ngIf="type == desOn.type && ir == desOn.ir && ic == desOn.ic" [@slide]>
+            <div class="course-des-wrap">
+              <div class="course-des-box center-ar">
+                <h1 class="course-des-title">{{course.name}}</h1>
+                <p *ngFor="let para of course.des">{{para}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="x-wrap" *ngIf="type == desOn.type && ir == desOn.ir && ic == desOn.ic" (click)="desToggleOut()">
+            <div class="cross cross-1"></div>
+            <div class="cross cross-2"></div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

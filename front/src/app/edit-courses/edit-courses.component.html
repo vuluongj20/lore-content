@@ -1,0 +1,167 @@
+<div class="section-box padded" *ngIf='courses'>
+  <h1 class="section-title">
+    Courses
+    <div class="edit-section-wrap">
+      <a class="edit-section bold" (click)="editSection($event)" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">Edit</a>
+      <a class="cancel-edit-section bold" (click)="cancelEditSection($event)" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">Cancel</a>
+      &nbsp;
+      <a class="done-edit-section bold" (click)="doneEditSection($event)" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">Done</a>
+    </div>
+  </h1>
+  <div *ngIf="!sectionOnEdit">
+    <form *ngFor="let type of courseTypes" [formGroup]="coursesGroup[type]">
+      <div class="type" formArrayName="array">
+        <h1 class="course-type">{{type | uppercase}}</h1>
+        <div *ngFor="let course of courses[type]; let i=index" [formGroupName]="i">
+          <div (click)="expand($event)" class="course-box edit" >
+            <h1 class="section-title name">{{course.name}}</h1>
+            <div class="text">
+              <p class="first">{{first(course.des[0])}}</p>
+            </div>
+          </div>
+          <div class="off form-wrap">
+            <div class="course-preview" [ngStyle]="{'background-color': coursesGroup[type].get('array').value[i].color}">
+              <img *ngIf="course.cleanUrl" class="center" [src]="course.cleanUrl" [ngStyle]="{
+                'height': (coursesGroup[type].get('array').value[i].size/10) + '%',
+                'left': (coursesGroup[type].get('array').value[i].x/10) + '%',
+                'top': (coursesGroup[type].get('array').value[i].y/10) + '%'}">
+              <div class="course-title-wrap">
+                <h1 class="course-title center">{{coursesGroup[type].get('array').value[i].name}}</h1>
+              </div>
+            </div>
+            <div class="control-board">
+              <div class="control">
+                <label>Name</label>
+                <label class="warning" [hidden]="coursesGroup[type].get('array').at(i).get('name').valid">Required</label>
+                <input formControlName="name" [class.red]="coursesGroup[type].get('array').at(i).get('name').invalid">
+              </div>
+              <div class="control">
+                <label>Background</label>
+                <label class="warning" [hidden]="!coursesGroup[type].get('array').at(i).get('color').errors?.required">Required</label>
+                <label class="warning" [hidden]="!coursesGroup[type].get('array').at(i).get('color').errors?.pattern">Hex color only</label>
+                <input class="hex" formControlName="color" maxlength="7" [class.red]="coursesGroup[type].get('array').at(i).get('color').invalid">
+              </div>
+              <div class="control">
+                <label>Cover image</label>
+                <input #file type="file" (change)="onFileChange($event, type, i)" accept="image/*">
+                <br>
+                <button class="upload-button" (click)="file.click()" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)" >Upload</button>
+              </div>
+              <div class="control">
+                <label>Image size</label><br>
+                <input class="slider image-size" type="range" value="900" min="0" max="2000" formControlName="size">
+                <p class="slider-text">{{coursesGroup[type].get('array').value[i].size/10}}%</p>
+              </div>
+              <div class="control">
+                <label>X-offset</label><br>
+                <input class="slider" type="range" value="900" min="0" max="1000" formControlName="x">
+                <p class="slider-text">{{coursesGroup[type].get('array').value[i].x/10}}%</p>
+              </div>
+              <div class="control">
+                <label>Y-offset</label><br>
+                <input class="slider" type="range" value="900" min="0" max="1000" formControlName="y">
+                <p class="slider-text">{{coursesGroup[type].get('array').value[i].y/10}}%</p>
+              </div>
+            </div>
+            <label>Description</label>
+            <label class="warning" [hidden]="coursesGroup[type].get('array').at(i).get('des').valid">Required</label>
+            <textarea formControlName="des" [class.red]="coursesGroup[type].get('array').at(i).get('des').invalid"></textarea>
+            <div class="buttons courses">
+              <button type="button" class="cancel-button" (click)="cancel($event, type, i)" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">Cancel</button>
+              <button type="button" class="submit-button" [disabled]="coursesGroup[type].get('array').at(i).invalid" (click)="onSubmit($event, type, i)" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">Done</button>
+            </div>
+          </div>
+        </div>
+        <div (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)" [formGroup]="newCoursesGroup[type]">
+          <div class="course-box plus-wrap edit add" (click)="newExpand($event)" >
+            <div class="plus-box center" >
+              <div class="plus-1"></div>
+              <div class="plus-2"></div>
+            </div>
+          </div>
+          <div class="off form-wrap">
+            <div class="course-preview" [ngStyle]="{'background-color': newCoursesGroup[type].value.color}">
+              <img *ngIf="newCourse[type].cleanUrl" class="center" [src]="newCourse[type].cleanUrl" [ngStyle]="{
+                'height': (newCoursesGroup[type].value.size/10) + '%',
+                'left': (newCoursesGroup[type].value.x/10) + '%',
+                'top': (newCoursesGroup[type].value.y/10) + '%'}">
+              <div class="course-title-wrap">
+                <h1 class="course-title center">{{newCoursesGroup[type].value.name}}</h1>
+              </div>
+            </div>
+            <div class="control-board">
+              <div class="control">
+                <label>New course name</label>
+                <label class="warning" [hidden]="newCoursesGroup[type].get('name').untouched || newCoursesGroup[type].get('name').valid">Required</label>
+                <input formControlName="name" [class.red]="newCoursesGroup[type].get('name').touched && newCoursesGroup[type].get('name').invalid" [placeholder]="!newCoursesGroup[type].get('name').touched ? 'Required' : ''">
+              </div>
+              <div class="control">
+                <label>Background</label>
+                <label class="warning" [hidden]="newCoursesGroup[type].get('color').untouched || !newCoursesGroup[type].get('color').errors?.required">Required</label>
+                <label class="warning" [hidden]="newCoursesGroup[type].get('color').untouched || !newCoursesGroup[type].get('color').errors?.pattern">Hex color only</label>
+                <input class="hex" formControlName="color" maxlength="7" [class.red]="newCoursesGroup[type].get('color').touched && newCoursesGroup[type].get('color').invalid" [placeholder]="!newCoursesGroup[type].get('color').touched ? 'Example: #FFFFFF' : ''">
+              </div>
+              <div class="control">
+                <label>Cover image</label>
+                <input #file type="file" (change)="newOnFileChange($event, type)" accept="image/*">
+                <br>
+                <button class="upload-button" (click)="file.click()" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)" >Upload</button>
+              </div>
+              <div class="control">
+                <label>Image size</label><br>
+                <input class="slider image-size" type="range" value="900" min="0" max="2000" formControlName="size">
+                <p class="slider-text">{{newCoursesGroup[type].value.size/10}}%</p>
+              </div>
+              <div class="control">
+                <label>X-offset</label><br>
+                <input class="slider" type="range" value="900" min="0" max="1000" formControlName="x">
+                <p class="slider-text">{{newCoursesGroup[type].value.x/10}}%</p>
+              </div>
+              <div class="control">
+                <label>Y-offset</label><br>
+                <input class="slider" type="range" value="900" min="0" max="1000" formControlName="y">
+                <p class="slider-text">{{newCoursesGroup[type].value.y/10}}%</p>
+              </div>
+            </div>
+            <label>Description</label>
+            <label class="warning" [hidden]="newCoursesGroup[type].get('des').untouched || newCoursesGroup[type].get('des').valid">Required</label>
+            <textarea formControlName="des" [class.red]="newCoursesGroup[type].get('des').touched && newCoursesGroup[type].get('des').invalid" [placeholder]="!newCoursesGroup[type].get('des').touched ? 'Required' : ''"></textarea>
+            <div class="buttons courses">
+              <button type="button" class="cancel-button" (click)="newCancel($event, type)" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">Cancel</button>
+              <button type="button" class="submit-button" [disabled]="newCoursesGroup[type].invalid" (click)="newOnSubmit($event, type)" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">Done</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="sectionOnEdit" cdkDropListGroup>
+    <div class="type-wrap" *ngFor="let type of courseTypes" cdkDropList [cdkDropListData]="courses[type]" (cdkDropListDropped)="drop($event)">
+        <h1 class="section-title course-type disabled">{{type | uppercase}}</h1>
+        <div class="course-box edit move" cdkDrag *ngFor="let course of courses[type]; let i=index" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
+          <div class="drag-handle">
+            <div class="drag-handle-box center">
+              <div class="dot dot-1"></div>
+              <div class="dot dot-2"></div>
+              <div class="dot dot-3"></div>
+              <div class="dot dot-4"></div>
+              <div class="dot dot-5"></div>
+              <div class="dot dot-6"></div>
+            </div>
+          </div>
+          <div class="course-inner-box">
+            <h1 class="name">{{course.name}}</h1>
+            <div class="text">
+              <p class="first">{{first(course.des[0])}}</p>
+            </div>
+          </div>
+          <div class="course-delete-box">
+            <div class="x-box" (click)="delete(type, i)" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
+              <div class="line-1"></div>
+              <div class="line-2"></div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

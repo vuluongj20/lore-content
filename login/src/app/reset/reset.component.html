@@ -1,0 +1,37 @@
+<div [@slide] *ngIf="adminPage" class="box center">
+  <p>{{adMes}}</p>
+  <form [formGroup]="adminGroup">
+    <input [class.red]="ademailErr" type="email" placeholder="Email" formControlName="email">
+    <input [class.red]="adPassErr" type="password" placeholder="Password" formControlName="pass">
+    <button type="submit" (click)="adminLog($event)" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
+      Sign in
+      <div class="loader center" *ngIf="loading">
+        <div class="wheel"></div>
+      </div>
+    </button>
+  </form>
+</div>
+<div [@slide] *ngIf="inputPage" class="box center">
+  <p>{{inputMes}}</p>
+  <input [class.red]="inputErr" type="email" [formControl]="inputGroup">
+  <button type="button" (click)="input($event)" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
+    Done
+    <div class="loader center" *ngIf="loading">
+      <div class="wheel"></div>
+    </div>
+  </button>
+</div>
+<div [@slide] *ngIf="resetPage" class="box center">
+  <p>{{resetMes}}</p>
+  <form [formGroup]="resetGroup">
+    <input [class.red]="newPassErr" formControlName="newPass" placeholder="Password" type="password">
+    <input [class.red]="newPass2Err" formControlName="newPass2" placeholder="Confirm Password" type="password">
+    <button (click)="reset($event)" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
+      Reset
+      <div class="loader center" *ngIf="loading">
+        <div class="wheel"></div>
+      </div></button>
+  </form>
+</div>
+<app-done *ngIf="doneMes" [mes]="doneMes"></app-done>
+<app-error *ngIf="resErr" [status]="resErr"></app-error>

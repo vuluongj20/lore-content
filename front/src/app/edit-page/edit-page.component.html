@@ -1,0 +1,32 @@
+<div [hidden]="!editPage">
+  <div [@fadeSlow] class="header-wrap">
+    <h1 class="header-text center">Lore Content</h1>
+  </div>
+  <app-edit-des [@fadeSlow]></app-edit-des>
+  <app-edit-courses [@fadeSlow]></app-edit-courses>
+  <app-edit-team [@fadeSlow]></app-edit-team>
+  <div [@fadeSlow]="editPage ? true : false" class="buttons">
+    <a class="router-link" routerLink="/preview"><button type="button" class="submit-button" [disabled]="formCounter !== 0" (click)="preview()" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">Preview</button></a>
+  </div>
+</div>
+<div [hidden]="!previewPage">
+  <router-outlet></router-outlet>
+  <div class="dummy" [class.demo]="demo"></div>
+  <div class="preview buttons">
+    <a class="router-link" routerLink="/"><button type="button" class="cancel-button" (click)="back()" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">Back</button></a>
+    <button type="button" class="submit-button" [disabled]="demo" (click)="save($event)" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">Save</button>
+    <p *ngIf="demo" class="demo-warning">(Demo users can't make any changes)</p>
+  </div>
+</div>
+<div *ngIf="loading" class="loader">
+  <div class="circle"></div>
+</div>
+<div *ngIf="done" class="fin box center">
+  <div class="check-circle">
+    <div class="line-1"></div>
+    <div class="line-2"></div>
+  </div>
+  <p class="slide-1" [@slide-1]>Done! Your edits are saved.</p><br>
+  <a href="/" class="slide-2 bold" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)" [@slide-2]>Visit the new site</a>
+</div>
+<app-error *ngIf="resErr" [status]="resErr"></app-error>

@@ -1,0 +1,22 @@
+<div class="team-wrap">
+  <div class="team-box center">
+    <h1 class="team-section-title">The Team</h1>
+    <p class="team-section-text">Got questions? Contact any of us here!</p>
+    <div class="mem-section">
+      <div class="mem-wrap" *ngFor="let mem of mems">
+        <div class="mem-portrait-wrap">
+          <img *ngIf="mem.cleanUrl" [src]="mem.cleanUrl" [ngStyle]="{
+            'height': mem.size/10 + '%',
+            'left': mem.x/10 + '%',
+            'top': mem.y/10 + '%'
+          }">
+        </div>
+        <div class="mem-text-wrap">
+          <h1 class="mem-text">{{mem.name}}</h1>
+          <p class="mem-text">{{mem.function}}</p>
+          <a href="mailto:{{mem.email}}" (touchstart)="touchStart($event)" (touchend)="touchEnd($event)"><button>Get in touch</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

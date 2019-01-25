@@ -1,0 +1,18 @@
+.box {
+  text-align: center;
+}
+h1.oops {
+  font-size: 80px;
+  margin-bottom: 10px;
+}
+@media (hover: none) {
+  a {
+    margin-top: 8px;
+  }
+}
+@media (max-width: 767px) {
+  h1.oops {
+    font-size: 60px;
+    margin-bottom: 10px;
+  }
+}

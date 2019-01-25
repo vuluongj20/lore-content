@@ -1,0 +1,13 @@
+<div class="des-wrap">
+  <div *ngIf="des" class="des-box center">
+    <h1 class="des-title">The Mission</h1>
+    <p class="des-text">
+      {{des[0]}}&nbsp;&nbsp;
+      <button *ngIf="!isShown" [@fade] class="read-more" (click)="showToggle($event)" (touchstart)="touchStart($event)" (touchend)="touchEnd($event)">Read more</button>
+    </p>
+    <div *ngIf="isShown" [@fade]>
+      <p class="des-text" *ngFor="let para of des.slice(1, des.length - 1)">{{para}}</p>
+      <p class="des-text">{{des[des.length-1]}}&nbsp;&nbsp;<button class="read-less" (click)="showToggle($event)">Collapse</button></p>
+    </div>
+  </div>
+</div>

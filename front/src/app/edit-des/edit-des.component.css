@@ -1,0 +1,21 @@
+.des-box {
+  padding: 30px;
+}
+@media (hover: hover) {
+  .des-box.on:hover {
+    border-color: transparent;
+  }
+}
+@media (hover: none) {
+  .des-box.edit {
+    padding: 30px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .des-box {
+    padding: 10px 20px;
+  }
+  .des-box.edit.on {
+    padding: 30px 10px;
+  }
+}

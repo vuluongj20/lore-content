@@ -1,0 +1,75 @@
+.box {
+  width: 300px;
+}
+.circle {
+  margin: 0 auto 40px auto;
+  width: 120px;
+  height: 120px;
+  border: 1px solid #cfcfcf;
+  border-radius: 50%;
+  animation-duration: 500ms;
+  animation-timing-function: ease;
+  animation-name: fade;
+}
+.line-1, .line-2 {
+  height: 4px;
+  background-color: #353535;
+  border-radius: 2px;
+  transform-origin: left;
+}
+.line-1 {
+  width: 60px;
+  transform: rotate(-54deg) translate(-36px, 94px);
+}
+.line-2 {
+  width: 30px;
+  transform: rotate(44deg) translate(67px, 19px);
+}
+.fin.box {
+  border: none;
+  text-align: center;
+}
+.slide-1, .slide-2 {
+  display: block;
+  position: relative;
+  animation-duration: 500ms;
+  animation-timing-function: ease;
+}
+.slide-1 {
+  animation-name: slide-1;
+}
+.slide-2 {
+  animation-name: slide-2;
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes slide-1 {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes slide-2 {
+  0% {
+    opacity: 0;
+    transform: translateY(70%);
+  }
+  20% {
+    opacity: 0;
+    transform: translateY(70%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}

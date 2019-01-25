@@ -1,0 +1,14 @@
+<div class="fin box center">
+  <h1>Oops...</h1>
+  <div *ngIf="status == 500">
+    <p>There was a server error.</p>
+    <a routerLink="/" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">Try again.</a>
+  </div>
+  <div *ngIf="status == 404">
+    <p>What you're looking for doesn't exist.</p>
+    <p>Make sure the link is correct.</p>
+  </div>
+  <div *ngIf="status != 500 && status != 404">
+    <p>Something went wrong.</p>
+  </div>
+</div>

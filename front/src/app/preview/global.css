@@ -1,0 +1,197 @@
+/* You can add global styles to this file, and also import other style files */
+img {
+  height: 100%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  animation: fade 200ms ease;
+}
+h1 {
+  font-family: PT Sans;
+  color: #000000;
+}
+h2 {
+  font-family: PT Sans;
+  color: #bababa;
+}
+p, a {
+  font-family: Cormorant Garamond;
+  font-size: 20px;
+  color: #353535;
+  line-height: 1.4;
+  margin-bottom: 0.8em;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #bababa;
+  transition: 50ms color ease;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+button {
+  font-family: inherit;
+  font-size: 0.9em;
+  padding: 0px 12px 1px 12px;
+  background-color: inherit;
+  border-radius: 20px;
+  border: 1px solid #efefef;
+  color: #353535;
+  cursor: pointer;
+  transition: background-color 50ms ease, color 50ms ease;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+button.touch {
+  color: #000000;
+  background-color: #efefef;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5em;
+}
+.cancel-button {
+  background-color: transparent;
+  border: 1px solid #dedede;
+  color: #bababa;
+}
+.submit-button {
+  background-color: #ffc500;
+  color: white;
+  border: none;
+}
+.text-bold {
+  font-weight: 700;
+}
+.underline {
+  text-decoration: underline solid #fca500;
+}
+.link-box {
+  position: absolute;
+  top: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+.small-screen {
+  display: none;
+}
+.center {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.center-ar {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.center-abs {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hidden {
+  display: none;
+}
+.hidden.on {
+  display: block;
+}
+.disabled, .load-background {
+  transition: opacity 200ms ease;
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.disabled {
+  opacity: 0.3;
+}
+.load-background {
+  opacity: 0.01;
+}
+h1[class*="title"] {
+  font-size: 32px;
+  margin-bottom: 0.6em;
+  text-indent: 0.15em;
+}
+.des-wrap, .course-wrap, .team-wrap {
+  border-top: 1px solid #efefef;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (hover: hover) {
+  a:hover {
+    color: #000000;
+    text-decoration: underline solid #fca500;
+  }
+  button:hover {
+    color: #000000;
+    background-color: #efefef;
+  }
+  .submit-button:hover {
+    transition: filter 50ms ease;
+    color: #ffffff;
+    background-color: #ffc500;
+    filter: brightness(110%);
+  }
+  .cancel-button:hover {
+    background-color: transparent;
+    color: #bababa;
+    text-decoration: underline;
+  }
+}
+@media (hover: none) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button {
+    outline: 0;
+  }
+  a.touch {
+    text-decoration: underline solid #fca500;
+  }
+  button.touch {
+    color: #000000;
+    background-color: #efefef;
+  }
+  .submit-button.touch {
+    transition: filter 50ms ease;
+    background-color: #ffc500;
+    color: #ffffff;
+    filter: brightness(110%);
+  }
+  .cancel-button.touch {
+    transition: background-color 50ms ease, border-color 50ms ease;
+    background-color: #efefef;
+    border-color: #efefef;
+    color: #bababa;
+  }
+}
+@media only screen and (max-width: 767px) {
+  p, a {
+    font-size: 19px;
+  }
+  h1[class*="title"] {
+    font-size: 28px;
+  }
+  .center {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .x-wrap {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+  }
+}

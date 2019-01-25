@@ -1,0 +1,144 @@
+.buttons {
+  width: calc(100% - 30px);
+  border-top: 1px solid #dadada;
+  padding: 15px;
+  margin-top: 30px;
+  background-color: rgba(255,255,255,0.99);
+}
+button {
+  width: 170px;
+  padding: 6px 15px;
+  margin-left: 25px;
+  margin-right: 25px;
+  font-size: 20px;
+}
+.router-link {
+  border: none;
+}
+/* Edit Page */
+.header-wrap {
+  position: relative;
+  height: 580px;
+  text-align: center;
+}
+.header-text {
+  font-size: 3em;
+}
+app-edit-des, app-edit-courses, app-edit-team {
+  display: block;
+  transition: opacity 300ms ease;
+}
+/* Preview Page */
+.dummy {
+  width: 100%;
+  height: 68px;
+}
+.dummy.demo {
+  height: 95px;
+}
+.preview.buttons {
+  position: fixed;
+  bottom: 0;
+  margin-top: 0;
+  flex-wrap: wrap;
+}
+.demo-warning {
+  display: block;
+  width: 100%;
+  font-size: 0.8em;
+  text-align: center;
+  color: #cfcfcf;
+  margin-top: 0.5em;
+}
+/* Check */
+.box {
+  width: 100%;
+}
+.check-circle {
+  margin: 0 auto 40px auto;
+  width: 120px;
+  height: 120px;
+  border: 1px solid #cfcfcf;
+  border-radius: 50%;
+  animation-duration: 500ms;
+  animation-timing-function: ease;
+  animation-name: fade;
+}
+.check-circle>.line-1, .check-circle>.line-2 {
+  height: 4px;
+  background-color: #353535;
+  border-radius: 2px;
+  transform-origin: left;
+}
+.check-circle>.line-1 {
+  width: 60px;
+  transform: rotate(-54deg) translate(-36px, 94px);
+}
+.check-circle>.line-2 {
+  width: 30px;
+  transform: rotate(44deg) translate(67px, 19px);
+}
+.fin.box {
+  border: none;
+  text-align: center;
+}
+.fin.box h1 {
+  font-size: 100px;
+}
+.slide-1, .slide-2 {
+  display: inline-block;
+  position: relative;
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* Loader */
+.loader {
+  position: fixed;
+  top: calc(50% - 38px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.circle {
+  width: 25px;
+  height: 25px;
+  border: 3px solid #efefef;
+  border-top: 3px solid #fca500;
+  border-radius: 50%;
+  animation: spin 1s cubic-bezier(.5, 0.1,.4,.9) infinite, fade 300ms ease;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (hover: none) {
+  .fin.box a {
+    margin-top: 0.3em;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .header-wrap {
+    height: 480px;
+  }
+  .preview button {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}

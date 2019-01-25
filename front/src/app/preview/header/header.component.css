@@ -1,0 +1,121 @@
+.dummy {
+  height: calc(110vh - 75px);
+  min-height: 330px;
+}
+/* Content */
+.header-wrap {
+  position: fixed;
+  height: calc(100vh - 75px);
+  min-height: 300px;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;
+  z-index: -1;
+}
+.header-wrap.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.header-box {
+  text-align: center;
+}
+.header-text, .header-text>h1 {
+  font-size: 80px;
+  animation-duration: 800ms;
+  animation-timing-function: ease;
+}
+.header-1 {
+  transform: translateY(10%);
+  animation-name: slide-1;
+}
+.header-2 {
+  transform: translateY(-10%);
+  animation-name: slide-2;
+}
+.header-2>.underline {
+  position: absolute;
+  top: 0;
+  color: rgba(0, 0, 0, 0);
+  transform-origin: left;
+  animation: underline;
+  animation-duration: 700ms;
+  animation-timing-function: ease-out;
+}
+.underline-box {
+  position: relative;
+}
+.header-name {
+  position: absolute;
+  left: 50%;
+  top: 2%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  font-size: 28px;
+  text-indent: 5px;
+  margin-bottom: 10px;
+  color: #333333;
+  animation-name: fade;
+  animation-duration: 700ms;
+  animation-timing-function: ease;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slide-1 {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(10%);
+  }
+}
+@keyframes slide-2 {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  20% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-10%);
+  }
+}
+@keyframes underline {
+  0% {
+    transform: scaleX(0);
+  }
+  20% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .header-text, .header-text h1 {
+    font-size: 70px;
+  }
+  .header-name {
+    font-size: 24px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .header-text, .header-text>h1 {
+    font-size: 46px;
+  }
+  .header-name {
+    font-size: 20px;
+  }
+}

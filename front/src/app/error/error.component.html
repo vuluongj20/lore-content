@@ -1,0 +1,19 @@
+<div class="box center">
+  <h1 class="oops">Oops...</h1>
+  <div *ngIf="status == 500">
+    <p>There was a server error.</p><br>
+    <a class="bold" href="/content/"  (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">Try again</a>
+  </div>
+  <div *ngIf="status == 404">
+    <p>What you're looking for doesn't exist.</p><br>
+    <p>Make sure the link is correct.</p>
+  </div>
+  <div *ngIf="status == 401">
+    <p>You're a demo user.</p><br>
+    <a class="bold" href="/login/"  (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">Sign in with another account</a>
+  </div>
+  <div *ngIf="status != 500 && status != 404 && status != 401">
+    <p>Something went wrong.</p><br>
+    <a class="bold" href="/content/"  (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">Try again</a>
+  </div>
+</div>

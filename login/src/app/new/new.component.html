@@ -1,0 +1,29 @@
+<div [@slide] *ngIf="adminPage" class="box center">
+  <p>{{adMes}}</p>
+  <form [formGroup]="adminGroup">
+    <input [class.red]="ademailErr" type="email" placeholder="Email" formControlName="email">
+    <input [class.red]="adPassErr" type="password" placeholder="Password" formControlName="pass">
+    <button type="submit" (click)="adminLog($event)" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
+      Sign in
+      <div class="loader center" *ngIf="loading">
+        <div class="wheel"></div>
+      </div>
+    </button>
+  </form>
+</div>
+<div [@slide] *ngIf="newPage" class="box center">
+  <p>{{newMes}}</p>
+  <form [formGroup]="newGroup">
+    <input [class.red]="newemailErr" type="email" placeholder="Email" formControlName="email">
+    <input [class.red]="newPassErr" type="password" placeholder="Password" formControlName="pass">
+    <input [class.red]="newPassErr" type="password" placeholder="Comfirm password" formControlName="pass2">
+    <button class="long" type="submit" (click)="new($event)" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
+      Create account
+      <div class="loader center" *ngIf="loading">
+        <div class="wheel"></div>
+      </div>
+    </button>
+  </form>
+</div>
+<app-done *ngIf="doneMes" [mes]="doneMes"></app-done>
+<app-error *ngIf="resErr" [status]="resErr"></app-error>

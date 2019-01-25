@@ -1,0 +1,25 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 40%;
+  text-align: center;
+  border-top: 1px solid #efefef;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #FFFFFF;
+}
+.footer p {
+  float: left;
+  font-size: 1em;
+  margin-bottom: 0;
+  margin-right: .5em;
+  margin-left: .5em;
+}
+@media only screen and (max-width: 767px) {
+  .footer {
+    width: 60%;
+  }
+}
