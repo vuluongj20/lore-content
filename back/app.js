@@ -3,7 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var cors = require('cors');
 var bodyParser = require('body-parser');
 
 var mainRouter = require('./routes/main');
@@ -25,7 +24,6 @@ app.use(bodyParser.json({limit: '100mb'}));
 app.use(bodyParser.urlencoded({limit: '100mb', extended: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors());
 
 // content page
 app.use('/content/preview', auth, express.static(path.join(__dirname, 'pages/content')));
