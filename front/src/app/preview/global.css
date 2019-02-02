@@ -22,7 +22,6 @@ p, a {
 }
 a {
   text-decoration: none;
-  cursor: pointer;
   color: #bababa;
   transition: 50ms color ease;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -35,7 +34,6 @@ button {
   border-radius: 20px;
   border: 1px solid #efefef;
   color: #353535;
-  cursor: pointer;
   transition: background-color 50ms ease, color 50ms ease;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
@@ -70,7 +68,6 @@ button.touch {
   display: block;
   height: 100%;
   width: 100%;
-  cursor: pointer;
 }
 .small-screen {
   display: none;
