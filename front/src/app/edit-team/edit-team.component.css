@@ -1,53 +1,45 @@
 .mem-tot {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+.mem-tot.tot-move {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 .mem-box-wrap {
-  position: relative;
   width: 50%;
+}
+.mem-box.move {
+  max-width: 360px;
+  width: 90%;
+}
+.mem-box {
+  position: relative;
   cursor: pointer;
   padding: 20px;
   padding-left: 50px;
+  box-sizing: border-box;
 }
-.mem-box-wrap.move {
-  max-width: 360px;
-}
-.section-box.onEdit .mem-box-wrap.move {
-  margin-left: calc(50% - 180px);
-  margin-right: calc(50% - 180px);
-}
-.mem-box-wrap.add {
+.mem-box.add {
   padding: 0;
+  height: 100px;
 }
 .mem-box-wrap.on, .mem-box-wrap.add {
   width: 100%;
 }
-.mem-box {
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
-}
-.section-box.onEdit .mem-box-wrap {
-  width: calc(60% - 40px);
-  margin-left: auto;
-  margin-right: auto;
-}
-.form-wrap {
-  width: 100%;
-  margin: 20px 0;
-  padding: 60px 0;
-}
-.mem-box.add {
-  height: 100px;
-}
-.form-wrap.add {
-  height: auto;
+.mem-box-wrap.on {
+  max-width: none;
 }
 .form-wrap {
   position: relative;
   width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 20px auto;
+  padding: 60px 0;
+}
+.form-wrap.add {
+  height: auto;
 }
 .mem-portrait-wrap {
   position: relative;
@@ -72,7 +64,7 @@
   will-change: transform;
   transition: transform 20ms ease;
 }
-.mem-tot.cdk-drop-list-dragging .mem-box-wrap:not(.cdk-drag-placeholder) {
+.mem-tot.cdk-drop-list-dragging .mem-box:not(.cdk-drag-placeholder) {
   transition: transform 200ms ease-out;
 }
 .drag-handle {
@@ -85,7 +77,6 @@
 .mem-box.move {
   background-color: rgba(255,255,255, 0.9);
   background-color: rgba(250,250,250, 0.98);
-  margin-bottom: 10px;
 }
 .mem-delete-box {
   position: absolute;
@@ -100,51 +91,45 @@
     padding-left: 16%;
   }
   .mem-box.edit.move {
-    padding-left: 16%;
+    background-color: #ffffff;
+    padding: 30px 50px;
   }
   .mem-delete-box, .drag-handle {
     height: calc(100% - 60px);
     top: 30px;
   }
-  .mem-box.move {
-    background-color: #ffffff;
-  }
   .form-wrap {
     width: 100%;
   }
-  .mem-box-wrap.on {
-    max-width: none;
-  }
-  .mem-box-wrap.touch .dot {
+  .mem-box.touch .dot {
     transition: background-color 50ms ease;
     background-color: #353535;
   }
 }
 @media only screen and (min-width: 768px) and (hover: none) {
-  .mem-box-wrap.edit {
+  .mem-box-wrap {
     margin: 10px;
     width: calc(50% - 20px);
   }
-  .mem-box-wrap.edit.add {
-    width: calc(100% - 20px);
+  .mem-box.edit:not(.move) {
+    margin: 0;
   }
-  .mem-box-wrap.edit.move {
-    width: calc(100% - 20px);
+  .mem-box.edit.move {
+    margin-top: 0px;
   }
 }
 @media only screen and (max-width: 767px) and (hover: none) {
-  .section-box.onEdit .mem-box-wrap.move {
-    margin-left: calc(50% - 170px);
-    margin-right: calc(50% - 170px);
-  }
-  .mem-box-wrap.edit, .mem-box-wrap.edit.move {
+  .mem-box-wrap {
     margin: 5px;
     width: calc(50% - 10px);
   }
-  .mem-box-wrap.edit.add {
-    width: calc(100% - 10px);
+  .mem-box.edit:not(.move) {
+    margin: 0px;
   }
-  .mem-box-wrap>.mem-delete-box, .mem-box-wrap>.drag-handle {
+  .mem-box.edit.move {
+    margin: 5px;
+  }
+  .mem-box>.mem-delete-box, .mem-box>.drag-handle {
     height: calc(100% - 60px);
     top: 30px;
   }
@@ -153,13 +138,13 @@
   }
 }
 @media only screen and (max-width: 654px) and (hover: none) {
-  .mem-box-wrap.edit, .mem-box-wrap.edit.add {
+  .mem-box-wrap:not(.on) {
     width: 90%;
     max-width: 340px;
   }
 }
 @media only screen and (max-width: 767px) {
-  .section-box.onEdit .mem-box-wrap.move {
+  .mem-box.move {
     width: 90%;
     max-width: 340px;
   }
@@ -176,21 +161,12 @@
   }
 }
 @media only screen and (max-width: 654px) {
-  .mem-tot {
-    justify-content: center;
-  }
-  .mem-box-wrap {
+  .mem-box-wrap, .mem-box-wrap.move {
     width: 90%;
     max-width: 340px;
-  }
-  .mem-box-wrap.add {
-    width: 90%;
   }
   .form-wrap {
     max-width: none;
     padding-left: 0;
-  }
-  .section-box.onEdit .mem-box-wrap {
-    width: 90%;
   }
 }

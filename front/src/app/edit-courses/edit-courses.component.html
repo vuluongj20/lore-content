@@ -13,7 +13,7 @@
       <div class="type" formArrayName="array">
         <h1 class="course-type">{{type | uppercase}}</h1>
         <div *ngFor="let course of courses[type]; let i=index" [formGroupName]="i">
-          <div (click)="expand($event)" class="course-box edit" >
+          <div (click)="expand($event)" class="course-box edit">
             <h1 class="section-title name">{{course.name}}</h1>
             <div class="text">
               <p class="first">{{first(course.des[0])}}</p>
