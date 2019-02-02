@@ -5,20 +5,27 @@
 .mem-box-wrap {
   position: relative;
   width: 50%;
+  cursor: pointer;
+  padding: 20px;
+  padding-left: 50px;
+}
+.mem-box-wrap.move {
+  max-width: 360px;
+}
+.section-box.onEdit .mem-box-wrap.move {
+  margin-left: calc(50% - 180px);
+  margin-right: calc(50% - 180px);
+}
+.mem-box-wrap.add {
+  padding: 0;
 }
 .mem-box-wrap.on, .mem-box-wrap.add {
   width: 100%;
 }
 .mem-box {
   position: relative;
-  display: inline-block;
   width: 100%;
-  padding: 20px;
-  padding-left: 16%;
   box-sizing: border-box;
-}
-.mem-box-wrap.move {
-  padding-left: 8%;
 }
 .section-box.onEdit .mem-box-wrap {
   width: calc(60% - 40px);
@@ -61,18 +68,19 @@
 .cdk-drag-placeholder {
   opacity: 0;
 }
-.cdk-drag-animating {
-  transition: transform 200ms ease;
+.cdk-drag {
+  will-change: transform;
+  transition: transform 20ms ease;
 }
-.mem-tot.cdk-drop-list-dragging .mem-box:not(.cdk-drag-placeholder) {
-  transition: transform 200ms ease;
+.mem-tot.cdk-drop-list-dragging .mem-box-wrap:not(.cdk-drag-placeholder) {
+  transition: transform 200ms ease-out;
 }
 .drag-handle {
   position: absolute;
   top: 20px;
-  left: 20px;
+  left: 5px;
   width: 40px;
-  height: calc(100% - 50px);
+  height: calc(100% - 40px);
 }
 .mem-box.move {
   background-color: rgba(255,255,255, 0.9);
@@ -82,9 +90,9 @@
 .mem-delete-box {
   position: absolute;
   top: 20px;
-  right: 30px;
+  right: 20px;
   width: 40px;
-  height: calc(100% - 50px);
+  height: calc(100% - 40px);
 }
 @media (hover: none) {
   .mem-box.edit {
@@ -113,14 +121,27 @@
   }
 }
 @media only screen and (min-width: 768px) and (hover: none) {
-  .mem-box.edit, .mem-box.edit.move {
+  .mem-box-wrap.edit {
     margin: 10px;
+    width: calc(50% - 20px);
+  }
+  .mem-box-wrap.edit.add {
+    width: calc(100% - 20px);
+  }
+  .mem-box-wrap.edit.move {
     width: calc(100% - 20px);
   }
 }
 @media only screen and (max-width: 767px) and (hover: none) {
-  .mem-box.edit, .mem-box.edit.move {
+  .section-box.onEdit .mem-box-wrap.move {
+    margin-left: calc(50% - 170px);
+    margin-right: calc(50% - 170px);
+  }
+  .mem-box-wrap.edit, .mem-box-wrap.edit.move {
     margin: 5px;
+    width: calc(50% - 10px);
+  }
+  .mem-box-wrap.edit.add {
     width: calc(100% - 10px);
   }
   .mem-box-wrap>.mem-delete-box, .mem-box-wrap>.drag-handle {
@@ -131,20 +152,23 @@
     left: 10px;
   }
 }
+@media only screen and (max-width: 654px) and (hover: none) {
+  .mem-box-wrap.edit, .mem-box-wrap.edit.add {
+    width: 90%;
+    max-width: 340px;
+  }
+}
 @media only screen and (max-width: 767px) {
-  .mem-box {
-    padding: 10px;
-    padding-left: 16%;
+  .section-box.onEdit .mem-box-wrap.move {
+    width: 90%;
+    max-width: 340px;
   }
   .mem-delete-box, .drag-handle {
     top: 10px;
-    height: calc(100% - 30px);
+    height: calc(100% - 20px);
   }
   .mem-delete-box {
     right: 15px;
-  }
-  .drag-handle {
-    left: 10px;
   }
   .mem-portrait-wrap {
     width: 260px;

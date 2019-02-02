@@ -10,8 +10,8 @@
   </h1>
   <form *ngIf="!sectionOnEdit" [formGroup]="memGroup">
     <div class="mem-tot" formArrayName="array">
-      <div *ngFor="let mem of mems; let i = index" class="mem-box-wrap">
-        <div class="mem-box edit" (click)="expand($event)">
+      <div *ngFor="let mem of mems; let i = index" class="mem-box-wrap edit">
+        <div class="mem-box" (click)="expand($event)">
           <h1 class="name">{{mem.name}}</h1><br>
           <p>{{mem.function}}</p><br>
           <p>{{mem.email}}</p>
@@ -74,8 +74,8 @@
           </div>
         </div>
       </div>
-      <div class="mem-box-wrap add" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)" [formGroup]="newMemGroup">
-        <div class="plus-wrap mem-box edit add" (click)="newExpand($event)">
+      <div class="mem-box-wrap edit add" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)" [formGroup]="newMemGroup">
+        <div class="plus-wrap mem-box add" (click)="newExpand($event)">
           <div class="plus-box center">
             <div class="plus-1"></div>
             <div class="plus-2"></div>
@@ -142,9 +142,9 @@
     </div>
   </form>
   <div *ngIf="sectionOnEdit">
-    <div class="mem-tot" cdkDropList (cdkDropListDropped)="drop($event)">
-      <div class="mem-box-wrap" cdkDrag *ngFor="let mem of mems; let i = index" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
-        <div class="mem-box edit move">
+    <div class="mem-tot tot-move" cdkDropList (cdkDropListDropped)="drop($event)">
+      <div class="mem-box-wrap move edit" cdkDrag *ngFor="let mem of mems; let i = index" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
+        <div class="mem-box">
           <h1 class="name">{{mem.name}}</h1><br>
             <p>{{mem.function}}</p><br>
             <p>{{mem.email}}</p>

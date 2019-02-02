@@ -266,6 +266,11 @@ input.red:focus, textarea.red:focus {
   max-width: 800px;
   min-width: 300px;
 }
+.move {
+  position: relative;
+  margin-bottom: 15px;
+  background-color: rgba(250,250,250, 0.98);
+}
 .x-box {
   position: absolute;
   right: 10%;
@@ -458,6 +463,7 @@ input.red:focus, textarea.red:focus {
     border: 1px solid rgba(250, 250, 250, 0.5);
   }
   .edit:before, .form-wrap:before {
+    transition: opacity 0.5s ease;
     content: "";
     display: block;
     position: absolute;
@@ -468,6 +474,9 @@ input.red:focus, textarea.red:focus {
     border-radius: 16px;
     box-shadow: -10px 10px 300px rgba(230, 230, 230, 0.9);
     z-index: -1;
+  }
+  .edit.move:before {
+    box-shadow: -10px 10px 100px rgba(230, 230, 230, 0.4);
   }
   .x-box.touch>.line-1, .x-box.touch>.line-2 {
     transition: background-color 50ms ease;
