@@ -36,6 +36,7 @@ button {
   color: #353535;
   transition: background-color 50ms ease, color 50ms ease;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
 }
 button.touch {
   color: #000000;
@@ -68,6 +69,7 @@ button.touch {
   display: block;
   height: 100%;
   width: 100%;
+  cursor: pointer;
 }
 .small-screen {
   display: none;

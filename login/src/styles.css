@@ -61,6 +61,7 @@ button {
   border-radius: 10px;
   text-align: center;
   color: #353535;
+  cursor: pointer;
 }
 
 
