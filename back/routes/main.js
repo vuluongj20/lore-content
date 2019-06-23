@@ -13,6 +13,7 @@ router.get('/des', async function(req, res, next) {
   try {
     var jdes = JSON.parse(await readFile('./data/current/main/des.json', 'utf8'));
     res.json(jdes);
+    jdes = null;
   } catch (err) {
     next(err);
   }
@@ -21,6 +22,7 @@ router.get('/courses', async function(req, res, next) {
   try {
     var jcourses = JSON.parse(await readFile('./data/current/main/courses.json', 'utf8'));
     res.json(jcourses);
+    jcourses = null;
   } catch (err) {
     next(err);
   }
@@ -29,6 +31,7 @@ router.get('/team', async function(req, res, next) {
   try {
     var jteam = JSON.parse(await readFile('./data/current/main/team.json', 'utf8'));
     res.json(jteam);
+    jteam = null;
   } catch (err) {
     next(err);
   }

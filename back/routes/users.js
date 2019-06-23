@@ -89,7 +89,6 @@ router.post('/reset', async function (req, res, next) {
         res.sendStatus(400);
       }
     } catch (err) {
-      console.log(err);
       next(err);
     }
   }
@@ -120,7 +119,6 @@ router.post('/reset', async function (req, res, next) {
       res.clearCookie('jwt');
       res.redirect('/login/');
     }
-    console.log(err);
     next(err);
   }
 });
@@ -149,7 +147,6 @@ router.post('/new', async function (req, res, next) {
         res.json({userExists: false});
       }
     } catch (err) {
-      console.log(err);
       next(err);
     }
   }
@@ -180,7 +177,6 @@ router.post('/new', async function (req, res, next) {
       res.clearCookie('jwt');
       res.redirect('/login/');
     }
-    console.log(err);
     next(err);
   }
 });
