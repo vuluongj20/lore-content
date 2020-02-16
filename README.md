@@ -9,7 +9,7 @@ The CMS has three components:
 * Login page ([Sign](https://github.com/vuluongj20/sign))
 
 ## Try a demo
-You can try a demo of Lore Content [here](https://lore.courses/login/).
+You can try a demo of Lore Content [here](https://lore-content.herokuapp.com/login/).
 
 Use this account:
 * Email: test@test.com
