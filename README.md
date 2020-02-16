@@ -1,6 +1,6 @@
 # Lore Content
 
-Lore Content is a content management system (CMS) for [Lore](https://github.com/vuluongj20/lore).
+Lore Content is a content management system (CMS) for Lore.
 
 ## Components
 The CMS has three components:
