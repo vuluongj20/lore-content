@@ -23,24 +23,24 @@ Download the code and run it locally!
 #### Directory structure
 Below is are the most important directories:
 ```
-- back
-  - pages
-    - content
-    - login
-    - main
-- front
-  - dist
-- login
-  - dist
+back/
+  pages/
+    content/
+    login/
+    main/
+front/
+  dist/
+login/
+  dist/
 ```
 There are three sub-directories in this repository:
-* ```/back``` is the back-end Express.js project for both the content and login pages
-* ```/front``` is the front-end Angular project for the content page
-* ```/login``` is the front-end Angular project for the login page
+* ```back/``` is the back-end Express.js project for both the content and login pages
+* ```front/``` is the front-end Angular project for the content page
+* ```login/``` is the front-end Angular project for the login page
 
 #### How to run
 
-To run the code, simply start a Node.js process from within ```/back```. If you made any edits to the front-end, re-build the Angular project and copy the corresponding code from ```/front/dist``` or ```/login/dist``` to ```/back/pages```.
+To run the code, simply start a Node.js process from within ```back/```. If you made any edits to the front-end, re-build the Angular project and copy the corresponding code from ```front/dist/``` or ```login/dist/``` to ```back/pages/```.
 
 ## License
 You may view the code and test run it locally. However, do not replicate it for any other purposes.
